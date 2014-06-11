@@ -18,7 +18,9 @@ LIBS		:=	-lpcre -lcrypto -lm -lpthread
 
 PLATFORM	=	$(shell uname -s)
 ifeq ($(PLATFORM),Darwin)
+CFLAGS          :=      $(CFLAGS) -I/opt/local/include
 OPENCL_LIBS	:=	-framework OpenCL
+LIBS            :=      $(LIBS) -L/opt/local/lib
 else
 OPENCL_LIBS	:=	-lOpenCL
 endif
